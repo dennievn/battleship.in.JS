@@ -1,15 +1,20 @@
+// coded & copyright @ Duong Nguyen
+// in reference to HEAD FIRST JS
+
+// defined variables
 var location1 = 3;
 var location2 = 4;
 var location3 = 5;
-var currentQuess;
+var currentGuess;
 var numHits = 0;
-var numQuesses = 0;
+var numGuesses = 0;
 var sunk = false;
 
-/* LOOP: while the ship is not sunk
+/* PSEUDOCODE---- 
+LOOP: while the ship is not sunk
 	GET the user guess
 	COMPARE the user's input to valid input values
-	IF te user guess is invalid
+	IF the user guess is invalid
 		TELL user to enter a valid number
 	ELSE 
 		ADD one to currentGuess
@@ -23,23 +28,27 @@ var sunk = false;
 	END ELSE
 END LOOP
 TELL user stats 
-
-
-
 */
 
 while (sunk == false){
-	currentQuess = prompt("Enter your guess");
-	if (currentQuess == NaN){
+	currentGuess = prompt("Ready to FIRE? (Place you aim shot with numbers between 1 - 6):");
+	if (currentGuess < 0 || currentGuess > 6){ //validate user input
 		alert("Please enter a valid number:");
 	}else{
-		currentQuess++;
-	}
-	if (currentQuess == location1 || currentQuess == 2 || currentQuess == 3){
-		numHits++;
-	}
-	if (numQuesses == 3){
-		sunk = true;
-		alert("You sunk my battleship!");
+		numGuesses +=1;
+
+		if (currentGuess == location1 || currentGuess == location2 || currentGuess == location3){
+			alert("HIT");
+			numHits +=1;
+		
+		if (numHits == 3){
+			sunk = true;
+				alert("You sunk my battleship!");
+				}
+		} else{
+			alert("MISS");
+		}
 	}
 }
+var gameStatus = "You took " + numGuesses + " guesses to sink the battleship, "+ "which means your shooting accuracy was " + (3/numGuesses);
+alert(gameStatus);
