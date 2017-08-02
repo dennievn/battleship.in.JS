@@ -2,9 +2,10 @@
 // in reference to HEAD FIRST JS
 
 // defined variables
-var location1 = 3;
-var location2 = 4;
-var location3 = 5;
+var gpsRandom = Math.floor(Math.random()*5);
+var location1 = gpsRandom;
+var location2 = gpsRandom+1;
+var location3 = gpsRandom+2;
 var currentGuess;
 var numHits = 0;
 var numGuesses = 0;
